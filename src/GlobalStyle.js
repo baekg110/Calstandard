@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
@@ -25,6 +25,10 @@ const GlobalStyle = createGlobalStyle`
     color: var(--txt-color);
     }   
 
+    body{
+
+    }
+
     img {
         width: 100%;
         height: auto;
@@ -46,3 +50,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
+
+export const AppContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

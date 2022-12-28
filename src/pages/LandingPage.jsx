@@ -18,8 +18,10 @@ export default function LandingPage() {
           <MemberForm value="주헌" />
         </form>
         <button type="button">추가</button>
-        <Link to="/pay">다음</Link>
       </land.Main>
+      <land.Footer>
+        <Link to="/pay">다음</Link>
+      </land.Footer>
     </land.Container>
   );
 }
