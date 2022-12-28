@@ -40,7 +40,7 @@ export default function PayPage() {
         </form>
 
         <button type="button">추가</button>
-        <Link to="/pay">다음</Link>
+        <Link to="/result">다음</Link>
       </main>
     </>
   );
