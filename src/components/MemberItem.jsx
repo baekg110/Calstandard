@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 
@@ -36,20 +36,42 @@ const Buttons = styled.div`
   }
 `;
 
-export default function MemberForm({ value, setValue, checked }) {
+const handleDelete = () => {
+  if (window.confirm('삭제하시겠습니까?')) {
+    return <></>;
+  } else {
+  }
+};
+
+export default function MemberForm({ value, setValue, checked, onClick }) {
+  const nameRef = useRef();
+
+  const handleInput = () => {
+    console.log(nameRef.current.value);
+    setValue();
+  };
   return (
-    <FieldCont>
+    <FieldCont onClick={onClick}>
       <label htmlFor="memberName" className="ir">
         구성원 입력
       </label>
-      <InputCont type="text" defaultValue={value} id="memberName" />
+      <InputCont
+        ref={nameRef}
+        type="text"
+        defaultValue={value}
+        id="memberName"
+        placeholder="구성원 이름을 입력하세요."
+        onChange={handleInput}
+      />
 
       <Buttons>
         <label>
           {/* <img src="#" alt="총무 선택" /> */}
           총무
-          <input type="radio" name="payer" checked={checked} />
+          <input type="radio" name="payer" checked={checked} onChange={() => setValue(value)} />
         </label>
+
+        <button type="button">저장</button>
         <button type="button">
           <AiOutlineClose alt="취소" />
         </button>
