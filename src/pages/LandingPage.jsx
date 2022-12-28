@@ -16,24 +16,47 @@ export default function LandingPage() {
   return (
     <>
       <Header>
-        <h2>정산 페이지</h2>
+        <h2>오늘의 정산</h2>
         <input type="date" />
         <p>모임의 정보와 구성원을 입력해주세요.</p>
       </Header>
       <Main>
         <form>
-          <label>
-            <span class="ir">구성원 입력</span>
-            <input defaultValue={'경현'} />
-            <input type="radio" name="payer" checked />
+          <fieldset>
+            <label>
+              <span className="ir">구성원 입력</span>
+            </label>
+            <input type="text" defaultValue={'경현'} />
+
+            <label>
+              <input type="radio" name="payer" checked />
+            </label>
             <button type="button">삭제</button>
-          </label>
-          <label>
-            <span class="ir">구성원 입력</span>
-            <input defaultValue={'형원'} />
-            <input type="radio" name="payer" />
+          </fieldset>
+
+          <fieldset>
+            <label>
+              <span className="ir">구성원 입력</span>
+            </label>
+            <input type="text" defaultValue={'형원'} />
+
+            <label>
+              <input type="radio" name="payer" />
+            </label>
             <button type="button">삭제</button>
-          </label>
+          </fieldset>
+
+          <fieldset>
+            <label>
+              <span className="ir">구성원 입력</span>
+            </label>
+            <input type="text" defaultValue={'주헌'} />
+
+            <label>
+              <input type="radio" name="payer" />
+            </label>
+            <button type="button">삭제</button>
+          </fieldset>
         </form>
         <button type="button">추가</button>
         <Link to="/pay">다음</Link>
