@@ -1,12 +1,20 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { InputPayment, PaymentList } from '../../components';
 import { Container, Header, LinkContainer } from '../../components/layout/Layout';
 
 function PayPage() {
   const location = useLocation();
-  const users = location.state.users.map((user) => user.name);
-  const payer = location.state.payer;
+  let users = location.state.users;
+  let payer = location.state.payer;
+  for (const user of users) {
+    if (payer === user.id) {
+      payer = user.name;
+      break;
+    }
+  }
+  users = users.map((user) => user.name);
+
   const itemRef = useRef();
   const priceRef = useRef();
   const nextId = useRef(0);

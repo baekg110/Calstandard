@@ -25,7 +25,7 @@ const ItemContainer = styled.li`
 
 const InfoContainer = styled.div`
   width: 100%;
-  /* padding-bottom: 6px; */
+  /* padding-bottom: 6px~; */
   display: flex;
   justify-content: space-between;
   gap: 8px;
