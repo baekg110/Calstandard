@@ -3,16 +3,18 @@ import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
     ${reset}
+
     :root {
-        --main-color: #95c1ff;
-        --txt-color: #333333;
-        --border-color: #C4C4C4;
-        --sub-border-color: #E0E0E0;
-        --bg-color: #F2F2F2;
-        --emphasis-txt-color: #EB5757;
-        --sub-txt-color: #828282;
-        --button-border: #BDBDBD;
+      --main-color: #ffcc00;
+      --txt-color: #333333;
+      --border-color: #c4c4c4;
+      --sub-border-color: #e0e0e0;
+      --bg-color: #f2f2f2;
+      --emphasis-txt-color: #eb5757;
+      --sub-txt-color: #828282;
+      --button-border: #bdbdbd;
     }
+
     *, *::before, *::after {
         box-sizing: border-box;
     }
