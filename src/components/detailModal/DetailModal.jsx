@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 
-export default function DetailModal({ user, pays }) {
-  console.log(pays);
+const ModalContainer = styled.div`
+  border: 1px solid red;
+  display: none;
+
+  ${(props) =>
+    props.open &&
+    css`
+      display: block;
+      background-color: yellow;
+    `}
+`;
+export default function DetailModal({ user, pays, modalOpen, setModalOpen }) {
+  const handleClose = () => {
+    setModalOpen(false);
+  };
   return (
-    <div>
+    <ModalContainer open={modalOpen}>
       <strong>{user} 상세 내역</strong>
       <ul>
         {pays &&
@@ -18,6 +32,9 @@ export default function DetailModal({ user, pays }) {
           ))}
       </ul>
       <p>{pays.map((pay) => pay.priceper).reduce((a, b) => a + b, 0)}</p>
-    </div>
+      <button type="button" onClick={handleClose}>
+        닫기
+      </button>
+    </ModalContainer>
   );
 }
