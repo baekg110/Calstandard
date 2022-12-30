@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const InputContainer = styled.div`
   margin: 0 auto;
-  width: 240px;
+  width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +12,7 @@ const InputContainer = styled.div`
 
   input {
     padding: 6px 12px;
-    width: 240px;
+    width: 280px;
     height: 40px;
     border-radius: 6px;
     border: 1px solid var(--border-color);
@@ -25,7 +25,7 @@ const InputContainer = styled.div`
   }
 
   button {
-    width: 60px;
+    width: 80px;
     height: 36px;
     background-color: var(--main-color);
     border: none;
