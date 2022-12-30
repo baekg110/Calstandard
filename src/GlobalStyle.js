@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     }
     
     body, button {
-    font-family: "Spoqa Han Sans Neo", "sans-serif";
+    font-family: 'Pretendard-Regular';
     font-size:14px;
     line-height:24px;
     font-weight:400;
@@ -50,12 +50,3 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
-
-export const AppContainer = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-color: yellow;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;

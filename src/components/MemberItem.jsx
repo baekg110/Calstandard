@@ -48,7 +48,7 @@ export default function MemberForm({ value, setValue, checked, onClick }) {
 
   const handleInput = () => {
     console.log(nameRef.current.value);
-    setValue();
+    setValue(nameRef.current.value);
   };
   return (
     <FieldCont onClick={onClick}>
@@ -62,6 +62,7 @@ export default function MemberForm({ value, setValue, checked, onClick }) {
         id="memberName"
         placeholder="구성원 이름을 입력하세요."
         onChange={handleInput}
+        required
       />
 
       <Buttons>

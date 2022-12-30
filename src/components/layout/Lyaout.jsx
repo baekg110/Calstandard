@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 export const Container = styled.article`
@@ -10,18 +11,4 @@ export const Container = styled.article`
   justify-content: space-between;
   align-items: center;
   outline: 1px solid black;
-`;
-
-export const Header = styled.div``;
-export const Main = styled.div``;
-export const Footer = styled.div`
-  width: 100%;
-  height: 62px;
-
-  a {
-    background-color: red;
-    /* display: block; */
-    width: 100%;
-    text-align: center;
-  }
 `;
