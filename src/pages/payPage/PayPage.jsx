@@ -25,17 +25,28 @@ function PayPage() {
     };
     setPays([...pays, pay]);
     nextId.current += 1;
+    itemRef.current.value = '';
+    priceRef.current.value = '';
   };
   const onChange = () => {};
 
   const onRemove = (id) => {
     setPays(pays.filter((pay) => pay.id !== id));
   };
+
+  const handleTest = () => {
+    console.log(pays);
+  };
   return (
     <>
       <InputPayment onCreate={onCreate} ref={ref} />
       <PaymentList pays={pays} onRemove={onRemove} onChange={onChange} />
-      <Link to="/result">다음</Link>
+      <button type="button" onClick={handleTest}>
+        테스트
+      </button>
+      <Link to="/result" state={{ users: users, payer: payer, pays: pays }}>
+        다음
+      </Link>
     </>
   );
 }

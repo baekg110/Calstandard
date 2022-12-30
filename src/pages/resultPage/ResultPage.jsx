@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import tw from 'tailwind-styled-components';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function ResultPage() {
+  const location = useLocation();
+  const users = location.state.users;
+  const payer = location.state.payer;
+  const pays = location.state.pays;
   return (
     <>
       <header>
