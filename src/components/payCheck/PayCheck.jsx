@@ -9,7 +9,7 @@ export default function PayCheck(users, pays) {
   // 2. 결제 항목을 돌면서 각 사용자 별 결제 정보 저장
   for (const pay of pays) {
     const payResult = {
-      name: pay.price,
+      name: pay.name,
       price: pay.price,
       member: pay.users.length,
       priceper: parseInt(pay.price / pay.users.length),

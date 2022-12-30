@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { PayCheck, ResultList } from '../../components';
+import { DetailModal, PayCheck, ResultList } from '../../components';
 
 export default function ResultPage() {
   const location = useLocation();
@@ -8,9 +8,7 @@ export default function ResultPage() {
   const payer = location.state.payer;
   const pays = location.state.pays;
   const results = PayCheck(users, pays);
-  const onClick = (user) => {
-    console.log(user);
-  };
+
   return (
     <>
       <header>
@@ -19,7 +17,7 @@ export default function ResultPage() {
       </header>
       <main>
         <ul>
-          <ResultList results={results} onClick={onClick} />
+          <ResultList results={results} />
         </ul>
         <button type="button">공유하기</button>
         <Link to="/">처음으로</Link>
