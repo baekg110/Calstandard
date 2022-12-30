@@ -9,7 +9,6 @@ function LandingPage() {
   const [payer, setPayer] = useState(0);
   const nameRef = useRef();
   const nextId = useRef(0);
-  const navigate = useNavigate();
 
   const onCreate = () => {
     const user = {
