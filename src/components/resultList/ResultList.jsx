@@ -18,7 +18,7 @@ export default function ResultList({ results }) {
           <ResultItem key={index} user={user} results={results} onClick={onClick} />
         ))}
       <DetailModal user={modalUser} pays={results[modalUser]} modalOpen={modalOpen} setModalOpen={setModalOpen} />
-    </>
+    </Container>
   );
 }
 
