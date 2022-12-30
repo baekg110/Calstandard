@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { InputPayment, PaymentList } from '../../components';
+import { Container, Header } from '../../components/layout/Layout';
 
 function PayPage() {
   const location = useLocation();
@@ -28,27 +29,19 @@ function PayPage() {
     itemRef.current.value = '';
     priceRef.current.value = '';
   };
-  const onChange = () => {};
 
   const onRemove = (id) => {
     setPays(pays.filter((pay) => pay.id !== id));
   };
 
-  const handleTest = () => {
-    console.log(pays);
-  };
-
   return (
-    <>
+    <Container>
       <InputPayment onCreate={onCreate} ref={ref} />
-      <PaymentList pays={pays} onRemove={onRemove} onChange={onChange} />
-      <button type="button" onClick={handleTest}>
-        테스트
-      </button>
+      <PaymentList pays={pays} setPays={setPays} onRemove={onRemove} />
       <Link to="/result" state={{ users: users, payer: payer, pays: pays }}>
         다음
       </Link>
-    </>
+    </Container>
   );
 }
 

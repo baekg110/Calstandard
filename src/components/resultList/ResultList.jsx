@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DetailModal from '../detailModal/DetailModal';
+import { Container } from '../layout/Layout';
 
 export default function ResultList({ results }) {
   const [modalUser, setModalUser] = useState(Object.keys(results)[0]);
@@ -11,13 +12,13 @@ export default function ResultList({ results }) {
   };
 
   return (
-    <>
+    <Container>
       {results &&
         Object.keys(results).map((user, index) => (
           <ResultItem key={index} user={user} results={results} onClick={onClick} />
         ))}
       <DetailModal user={modalUser} pays={results[modalUser]} modalOpen={modalOpen} setModalOpen={setModalOpen} />
-    </>
+    </Container>
   );
 }
 
