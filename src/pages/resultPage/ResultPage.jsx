@@ -41,6 +41,9 @@ export default function ResultPage() {
     setAcct({ bank: bankRef.current.value, acc: accRef.current.value });
   };
 
+  const except = () => {
+    alert('추후 개발될 예정입니다.');
+  };
   return (
     <Container>
       <Header>
@@ -53,7 +56,9 @@ export default function ResultPage() {
           <ResultList results={results} />
         </ul>
         <Buttons>
-          <button type="button">공유하기</button>
+          <button type="button" onClick={except}>
+            공유하기
+          </button>
           <Link to="/">처음으로</Link>
         </Buttons>
       </main>
