@@ -12,6 +12,11 @@ const InputContainer = styled.div`
     width: 240px;
     border-radius: 6px;
     border: 1px solid var(--border-color);
+
+    &:focus{
+      border:1px solid var(--main-color);
+      outline:1px solid var(--main-color)
+    }
   }
 
   button {
@@ -23,12 +28,11 @@ const InputContainer = styled.div`
 
     &:disabled{
     background-color: #ddd;
-
     }
 `;
 
-const MAX_LENGTH = 18;
 function InputUser({ onCreate }, ref) {
+  const MAX_LENGTH = 18;
   const [activ, setActiv] = useState(true);
   const handleActiv = () => {
     if (ref.current.value) {
