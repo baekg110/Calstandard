@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Dutch } from '../../components/payCheck/PayCheck';
+import { PayCheck, ResultList } from '../../components';
 
 export default function ResultPage() {
   const location = useLocation();
-
+  const users = location.state.users;
+  const payer = location.state.payer;
+  const pays = location.state.pays;
+  const results = PayCheck(users, pays);
+  const onClick = (user) => {
+    console.log(user);
+  };
   return (
     <>
       <header>
@@ -13,15 +19,10 @@ export default function ResultPage() {
       </header>
       <main>
         <ul>
-          <li>
-            <p>사용자 이름</p>
-            <p>25000원</p>
-            <button type="button">상세 목록 보기</button>
-          </li>
+          <ResultList results={results} onClick={onClick} />
         </ul>
-
-        <Link to="/">처음으로</Link>
         <button type="button">공유하기</button>
+        <Link to="/">처음으로</Link>
       </main>
     </>
   );
