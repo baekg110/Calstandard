@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { HiOutlineX } from 'react-icons/hi';
 import { SlClose } from 'react-icons/sl';
 const ListContainer = styled.ul`
   padding: 12px 24px;

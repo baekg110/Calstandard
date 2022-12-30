@@ -20,9 +20,15 @@ export const Header = styled.header`
   margin: 80px 0 32px;
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   h2 {
     font-size: 24px;
     font-weight: 700;
+  }
+  p {
+    line-height: 20px;
   }
 `;
 

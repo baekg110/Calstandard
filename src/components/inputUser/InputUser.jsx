@@ -28,6 +28,7 @@ const InputContainer = styled.div`
 
     &:disabled {
       background-color: #ddd;
+      cursor: default;
     }
   }
 `;
