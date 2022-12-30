@@ -20,17 +20,21 @@ function PayPage() {
     const pay = {
       id: nextId.current,
       name: itemRef.current.value,
-      price: priceRef,
+      price: priceRef.current.value,
       users: [...users],
     };
     setPays([...pays, pay]);
     nextId.current += 1;
   };
-  const chageJoin = () => {};
+  const onChange = () => {};
+
+  const onRemove = (id) => {
+    setPays(pays.filter((pay) => pay.id !== id));
+  };
   return (
     <>
       <InputPayment onCreate={onCreate} ref={ref} />
-      <PaymentList pays={pays} />
+      <PaymentList pays={pays} onRemove={onRemove} onChange={onChange} />
       <Link to="/result">다음</Link>
     </>
   );

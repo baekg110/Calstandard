@@ -1,11 +1,8 @@
 import React from 'react';
-function Pay({ pay }) {
+
+function Pay({ pay, onRemove }) {
   return (
     <div>
-      <b>{pay.key}</b>
-      {/* {pay.users.map((user) => (
-        ))}
-         */}
       <div>
         <button>전체선택/해제</button>
         {pay.users.map((user) => (
@@ -13,16 +10,17 @@ function Pay({ pay }) {
             {user.name}
           </button>
         ))}
+        <button onClick={() => onRemove(pay.id)}>삭제</button>
       </div>
     </div>
   );
 }
 
-export default function PaymentList({ pays, onRemove }) {
+export default function PaymentList({ pays, onRemove, onChange }) {
   return (
     <div>
       {pays.map((pay) => (
-        <Pay key={pay.id} pay={pay} />
+        <Pay key={pay.id} pay={pay} onRemove={onRemove} />
       ))}
     </div>
   );
