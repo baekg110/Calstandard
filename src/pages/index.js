@@ -1,3 +1,3 @@
-export { default as LandingPage } from './LandingPage';
-export { default as PayPage } from './PayPage';
-export { default as ResultPage } from './ResultPage';
+export { default as LandingPage } from './landingPage/LandingPage';
+export { default as PayPage } from './payPage/PayPage';
+export { default as ResultPage } from './resultPage/ResultPage';

@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import InputUser from '../components/InputUser';
-import UserList from '../components/UserList';
+import { InputUser, UserList } from '../../components';
 
 function LandingPage() {
   const [users, setUsers] = useState([]);
