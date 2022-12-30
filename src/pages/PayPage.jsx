@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import tw from 'tailwind-styled-components';
 
 export default function PayPage() {
+  const location = useLocation();
+  const users = location.state.users;
+  const payer = location.state.payer;
+  console.log('user', users);
+  console.log('payer', payer);
   return (
     <>
       <header>

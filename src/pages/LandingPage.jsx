@@ -1,12 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import InputUser from '../components/InputUser';
+import UserList from '../components/UserList';
 
-export default function LandingPage() {
+function LandingPage() {
+  const [users, setUsers] = useState([]);
+  const [payer, setPayer] = useState(0);
+  const nameRef = useRef();
+  const nextId = useRef(0);
+  const navigate = useNavigate();
+
+  const onCreate = () => {
+    const user = {
+      id: nextId.current,
+      name: nameRef.current.value,
+    };
+    setUsers([...users, user]);
+
+    nextId.current += 1;
+    nameRef.current.value = '';
+  };
+
+  const onRemove = (id) => {
+    setUsers(users.filter((user) => user.id !== id));
+  };
+
   return (
     <>
-      <h2>오늘의 정산</h2>
-      <input type="date" />
-      <p>모임의 정보와 구성원을 입력해주세요.</p>
+      <p>{payer}</p>
+      <InputUser onCreate={onCreate} ref={nameRef} />
+      <UserList users={users} onRemove={onRemove} payer={payer} setPayer={setPayer} />
+      <Link to="/pay" state={{ users: users, payer: payer }}>
+        다음
+      </Link>
     </>
   );
 }
+
+export default LandingPage;

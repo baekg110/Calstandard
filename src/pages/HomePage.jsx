@@ -1,12 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+
 const Cont = styled.article`
-  width: 40%;
+  /* width: 40%; */
+  width: min(480px, 100%);
   height: 100vh;
   display: flex;
+  /* flex: 0 1 380px; */
+  flex-basis: 380px;
   margin: auto;
   flex-direction: column;
+
+  form {
+    width: max(380px, 100%);
+  }
 `;
+
 const SectCont = styled.section`
   width: 100%;
   height: 33.3%;
@@ -25,26 +34,22 @@ const Header = styled.header`
 
 export default function HomePage() {
   const [members, setMembers] = useState([]);
+  const memberRef = useRef();
   const [payer, setPayer] = useState(0);
   const [pays, setPays] = useState([]);
-  const addMember = () => {
-    setMembers([...members, '']);
-  };
-  const addPay = () => {
-    setPays([...pays, { name: '', price: 0, member: [], priceper: 0 }]);
-  };
 
-  const addName = () => {
-    console.log(this);
+  const addMember = () => {
+    setMembers([...members, memberRef.current.value]);
+    memberRef.current.value = '';
   };
+  const deleteMember = (e) => {
+    console.log(e.target.previousNode);
+  };
+  useEffect(() => {});
 
   const changePayer = (index) => {
-    console.log(payer);
     setPayer(index);
   };
-  useEffect(() => {
-    console.log('ch', payer);
-  }, [payer]);
 
   return (
     <Cont>
@@ -54,35 +59,30 @@ export default function HomePage() {
           <p>정산 모임 구성원을 입력하세요</p>
         </Header>
         <form>
+          <fieldset>
+            <legend></legend>
+            <label htmlFor="memberName">
+              구성원
+              <input type="text" ref={memberRef} id="memberName" placeholder="구성원 정보를 입력하세요" required />
+            </label>
+            <button type="button" onClick={addMember}>
+              추가
+            </button>
+          </fieldset>
+          {/* <button type="button" onClick={addMember}>
+            구성원 추가
+          </button> */}
           {members &&
-            members.map((member, index) => (
+            members.map((el, index) => (
               <fieldset key={index}>
-                <legend>{index + 1}</legend>
-                <label htmlFor="memberName">
-                  구성원
-                  <input
-                    type="text"
-                    id="memberName"
-                    placeholder="구성원 정보를 입력하세요"
-                    defaultValue={member}
-                    required
-                    onChange={() => {
-                      console.log('onc', this);
-                      addName(this);
-                    }}
-                  />
+                <label>
+                  {el} <input type="radio" name="payer" defaultChecked={index === payer} onClick={changePayer} />
+                  <button type="button" onClick={deleteMember}>
+                    삭제
+                  </button>
                 </label>
-                <label htmlFor="payer">
-                  <input type="radio" name="payer" checked={index === payer} onChange={() => changePayer(index)} />
-                  총무
-                </label>
-                <button type="button">추가</button>
-                <button type="button">삭제</button>
               </fieldset>
             ))}
-          <button type="button" onClick={addMember}>
-            구성원 추가
-          </button>
         </form>
       </SectCont>
 
@@ -116,9 +116,7 @@ export default function HomePage() {
                 <button type="button">삭제</button>
               </fieldset>
             ))}
-          <button type="button" onClick={addPay}>
-            정산 항목 추가
-          </button>
+          <button type="button">정산 항목 추가</button>
         </form>
       </SectCont>
 
