@@ -5,9 +5,10 @@ import { InputPayment, PaymentList } from '../../components';
 function PayPage() {
   const location = useLocation();
   const users = location.state.users;
-  const payer = location.state.payer;
+  const payer = location.state.s;
   const itemRef = useRef();
   const priceRef = useRef();
+  console.log(users);
   const nextId = useRef(0);
   const ref = {
     itemRef: itemRef,

@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import { LandingPage, PayPage, ResultPage } from '../pages';
-import HomePage from '../pages/HomePage';
 
 export default function Router() {
   return (
@@ -10,7 +9,6 @@ export default function Router() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/pay" element={<PayPage />} />
         <Route path="/result" element={<ResultPage />} />
-        <Route path="/home" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Dutch } from '../../components/payCheck/PayCheck';
 
 export default function ResultPage() {
   const location = useLocation();
-  const users = location.state.users;
-  const payer = location.state.payer;
-  const pays = location.state.pays;
+
   return (
     <>
       <header>
