@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DetailModal from '../detailModal/DetailModal';
+import { Container } from '../layout/Layout';
 
 export default function ResultList({ results }) {
   const [user, setUser] = useState();
@@ -8,7 +9,7 @@ export default function ResultList({ results }) {
     setUser(user);
   }
   return (
-    <>
+    <Container>
       {results &&
         Object.keys(results).map((user, index) => (
           <li key={index}>
@@ -20,6 +21,6 @@ export default function ResultList({ results }) {
           </li>
         ))}
       <DetailModal user={user} pays={results[user]} />
-    </>
+    </Container>
   );
 }
