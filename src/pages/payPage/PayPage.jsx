@@ -34,15 +34,11 @@ function PayPage() {
     setPays(pays.filter((pay) => pay.id !== id));
   };
 
-  const handleTest = () => {
-    console.log(pays);
-  };
-
   return (
     <Container>
       <InputPayment onCreate={onCreate} ref={ref} />
       <PaymentList pays={pays} setPays={setPays} onRemove={onRemove} />
-      <Link to="/result" state={{ users: users.map((user) => user.name), payer: payer, pays: pays }}>
+      <Link to="/result" state={{ users: users, payer: payer, pays: pays }}>
         다음
       </Link>
     </Container>

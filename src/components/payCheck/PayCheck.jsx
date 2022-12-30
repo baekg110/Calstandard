@@ -3,9 +3,8 @@ export default function PayCheck(users, pays) {
 
   // 1. 사용자 이름과 내역을 확인할 수 있는 결과 객체 생성
   for (const user of users) {
-    result[user.name] = [];
+    result[user] = [];
   }
-
   // 2. 결제 항목을 돌면서 각 사용자 별 결제 정보 저장
   for (const pay of pays) {
     const payResult = {
@@ -14,18 +13,8 @@ export default function PayCheck(users, pays) {
       member: pay.users.length,
       priceper: parseInt(pay.price / pay.users.length),
     };
-    pay.users.map((user) => result[user.name].push(payResult));
+    pay.users.map((user) => result[user].push(payResult));
   }
-
-  // 3. 출력 폼
-  // for (const key of Object.keys(result)) {
-  //   console.log('멤버:', key);
-  //   console.log(
-  //     '전체금액:',
-  //     result[key].map((el) => el.priceper).reduce((a, b) => a + b, 0)
-  //   );
-  //   console.log('항목:', result[key]);
-  // }
 
   return result;
 }

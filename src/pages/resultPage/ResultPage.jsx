@@ -5,6 +5,7 @@ import { DetailModal, PayCheck, ResultList } from '../../components';
 export default function ResultPage() {
   const location = useLocation();
   const users = location.state.users;
+  console.log('>>', users);
   const payer = location.state.payer;
   const pays = location.state.pays;
   const results = PayCheck(users, pays);

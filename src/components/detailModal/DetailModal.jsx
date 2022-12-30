@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components';
 const ModalContainer = styled.div`
   border: 1px solid red;
   display: none;
-
   ${(props) =>
     props.open &&
     css`
