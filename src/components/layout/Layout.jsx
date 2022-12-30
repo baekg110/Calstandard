@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.article`
@@ -7,6 +8,7 @@ export const Container = styled.article`
   display: flex;
   margin: auto;
   flex-direction: column;
+  position: relative;
 `;
 
 export const Section = styled.section`
@@ -15,11 +17,24 @@ export const Section = styled.section`
 `;
 
 export const Header = styled.header`
-  margin: 60px 0 32px;
+  margin: 80px 0 32px;
   width: 100%;
   text-align: center;
   h2 {
     font-size: 24px;
     font-weight: 700;
   }
+`;
+
+export const LinkContainer = styled(Link)`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  border-radius: 20px 20px 0px 0px;
+  cursor: pointer;
 `;

@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 const InputContainer = styled.div`
   width: 100%;
@@ -13,9 +13,9 @@ const InputContainer = styled.div`
     border-radius: 6px;
     border: 1px solid var(--border-color);
 
-    &:focus{
-      border:1px solid var(--main-color);
-      outline:1px solid var(--main-color)
+    &:focus {
+      border: 1px solid var(--main-color);
+      outline: 1px solid var(--main-color);
     }
   }
 
@@ -26,9 +26,10 @@ const InputContainer = styled.div`
     border-radius: 10px;
     cursor: pointer;
 
-    &:disabled{
-    background-color: #ddd;
+    &:disabled {
+      background-color: #ddd;
     }
+  }
 `;
 
 function InputUser({ onCreate }, ref) {
@@ -41,7 +42,6 @@ function InputUser({ onCreate }, ref) {
       setActiv(true);
     }
   };
-
   // const onBlur = () => {
   //   if (ref.current.value.length > MAX_LENGTH) {
   //     ref.current.value = ref.current.value.slice(0, MAX_LENGTH);
@@ -50,7 +50,7 @@ function InputUser({ onCreate }, ref) {
   return (
     <InputContainer>
       <input maxLength={MAX_LENGTH} ref={ref} onChange={handleActiv} placeholder="구성원 이름을 입력해주세요." />
-      <button onClick={onCreate} disabled={activ}>
+      <button onClick={() => onCreate(setActiv)} disabled={activ}>
         등록
       </button>
     </InputContainer>

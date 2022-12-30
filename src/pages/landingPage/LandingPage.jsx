@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import InputUser from '../../components/inputUser/InputUser';
-import { Container, Header } from '../../components/layout/Layout';
+import { Container, Header, LinkContainer } from '../../components/layout/Layout';
 import UserList from '../../components/userList/UserList';
 
 function LandingPage() {
@@ -10,15 +10,17 @@ function LandingPage() {
   const nameRef = useRef();
   const nextId = useRef(0);
 
-  const onCreate = () => {
+  const onCreate = (setActiv) => {
+    // if(!nameRef.current.value)
     const user = {
       id: nextId.current,
       name: nameRef.current.value,
     };
-    setUsers([...users, user]);
 
     nextId.current += 1;
     nameRef.current.value = '';
+    setActiv(true);
+    setUsers([...users, user]);
   };
 
   const onRemove = (id) => {
@@ -33,9 +35,9 @@ function LandingPage() {
       </Header>
       <InputUser onCreate={onCreate} ref={nameRef} />
       <UserList users={users} onRemove={onRemove} payer={payer} setPayer={setPayer} />
-      <Link to="/pay" state={{ users: users, payer: payer }}>
+      <LinkContainer to="/pay" state={{ users: users, payer: payer }}>
         다음
-      </Link>
+      </LinkContainer>
     </Container>
   );
 }
