@@ -4,11 +4,10 @@ import { InputPayment, PaymentList } from '../../components';
 
 function PayPage() {
   const location = useLocation();
-  const users = location.state.users;
+  const users = location.state.users.map((user) => user.name);
   const payer = location.state.payer;
   const itemRef = useRef();
   const priceRef = useRef();
-  console.log(users);
   const nextId = useRef(0);
   const ref = {
     itemRef: itemRef,
@@ -38,6 +37,7 @@ function PayPage() {
   const handleTest = () => {
     console.log(pays);
   };
+
   return (
     <>
       <InputPayment onCreate={onCreate} ref={ref} />

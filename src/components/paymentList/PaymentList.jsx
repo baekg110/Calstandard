@@ -5,9 +5,9 @@ function Pay({ pay, onRemove }) {
     <div>
       <div>
         <button>전체선택/해제</button>
-        {pay.users.map((user) => (
-          <button key={`${pay.id}+${user.id}`} type="button">
-            {user.name}
+        {pay.users.map((user, index) => (
+          <button key={`${pay.id}${index}`} type="button">
+            {user}
           </button>
         ))}
         <button onClick={() => onRemove(pay.id)}>삭제</button>
