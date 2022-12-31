@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.article`
   width: min(780px, 100%);
@@ -32,7 +32,7 @@ export const Header = styled.header`
   }
 `;
 
-export const LinkContainer = styled(Link)`
+export const LinkContainer = styled.button`
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -40,7 +40,16 @@ export const LinkContainer = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--main-color);
+  background-color: #ddd;
+  border: none;
+  cursor: default;
+
   border-radius: 20px 20px 0px 0px;
-  cursor: pointer;
+
+  ${(props) =>
+    props.active &&
+    css`
+      background-color: var(--main-color);
+      cursor: pointer;
+    `}
 `;

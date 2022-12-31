@@ -9,6 +9,7 @@ function LandingPage() {
   const [payer, setPayer] = useState(0);
   const nameRef = useRef();
   const nextId = useRef(0);
+  const navigate = useNavigate();
 
   const onCreate = (setActiv) => {
     // if(!nameRef.current.value)
@@ -27,6 +28,14 @@ function LandingPage() {
     setUsers(users.filter((user) => user.id !== id));
   };
 
+  const navigateCheck = () => {
+    if (users.length) {
+      navigate(`${process.env.PUBLIC_URL}/pay`, { state: { users: users, payer: payer } });
+    } else {
+      alert('구성원 정보를 입력하세요.');
+    }
+  };
+
   return (
     <Container>
       <Header>
@@ -35,7 +44,7 @@ function LandingPage() {
       </Header>
       <InputUser onCreate={onCreate} ref={nameRef} />
       <UserList users={users} onRemove={onRemove} payer={payer} setPayer={setPayer} />
-      <LinkContainer to="/pay" state={{ users: users, payer: payer }}>
+      <LinkContainer onClick={navigateCheck} active={users.length}>
         다음
       </LinkContainer>
     </Container>

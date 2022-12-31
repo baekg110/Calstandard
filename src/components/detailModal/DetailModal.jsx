@@ -4,27 +4,28 @@ import { SlClose } from 'react-icons/sl';
 
 const ModalContainer = styled.div`
   position: absolute;
+  width: 100%;
+  height: 100%;
   inset: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 330px;
-  height: 620px;
+
   z-index: 10;
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
   display: none;
+
   ${(props) =>
     props.open &&
     css`
-      display: block;
-      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
     `}
 `;
 
 const Design = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 330px;
+  height: 620px;
   border-radius: 10px;
 
   padding: 50px 24px;
@@ -32,6 +33,14 @@ const Design = styled.div`
   /* display:flex; */
   display: flex;
   flex-direction: column;
+
+  display: none;
+  ${(props) =>
+    props.open &&
+    css`
+      display: block;
+      background-color: #fff;
+    `}
 
   strong {
     padding-bottom: 24px;
@@ -42,7 +51,7 @@ const Design = styled.div`
 
   ul {
     padding: 12px 0px;
-    height: 100%;
+    height: 90%;
 
     li {
       padding: 12px 6px;
@@ -95,8 +104,8 @@ export default function DetailModal({ user, pays, modalOpen, setModalOpen }) {
     setModalOpen(false);
   };
   return (
-    <ModalContainer open={modalOpen}>
-      <Design>
+    <ModalContainer open={modalOpen} onClick={handleClose}>
+      <Design open={modalOpen} onClick={(e) => e.stopPropagation()}>
         <strong>{user} 상세 내역</strong>
         <ul>
           {pays &&

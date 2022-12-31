@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { InputPayment, PaymentList } from '../../components';
 import { Container, Header, LinkContainer } from '../../components/layout/Layout';
 
 function PayPage() {
+  const navigate = useNavigate();
   const location = useLocation();
   let users = location.state.users;
   let payer = location.state.payer;
@@ -43,6 +44,14 @@ function PayPage() {
     setPays(pays.filter((pay) => pay.id !== id));
   };
 
+  const navigateCheck = () => {
+    if (pays.length) {
+      navigate(`${process.env.PUBLIC_URL}/result`, { state: { users: users, payer: payer, pays: pays } });
+    } else {
+      alert('정산 정보를 입력하세요.');
+    }
+  };
+
   return (
     <Container>
       <Header>
@@ -53,7 +62,7 @@ function PayPage() {
       </Header>
       <InputPayment onCreate={onCreate} ref={ref} />
       <PaymentList pays={pays} setPays={setPays} onRemove={onRemove} />
-      <LinkContainer to="/result" state={{ users: users, payer: payer, pays: pays }}>
+      <LinkContainer onClick={navigateCheck} active={pays.length}>
         다음
       </LinkContainer>
     </Container>
