@@ -6,9 +6,9 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/pay" element={<PayPage />} />
-        <Route path="/result" element={<ResultPage />} />
+        <Route path={process.env.PUBLIC_URL + '/'} element={<LandingPage />} />
+        <Route path={process.env.PUBLIC_URL + '/pay'} element={<PayPage />} />
+        <Route path={process.env.PUBLIC_URL + '/result'} element={<ResultPage />} />
       </Routes>
     </BrowserRouter>
   );
