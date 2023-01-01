@@ -13,15 +13,20 @@ function LandingPage() {
 
   const onCreate = (setActiv) => {
     // if(!nameRef.current.value)
-    const user = {
-      id: nextId.current,
-      name: nameRef.current.value,
-    };
+    console.log(users.filter((user) => user.name === nameRef.current.value));
+    if (users.filter((user) => user.name === nameRef.current.value).length) {
+      alert('중복된 이름을 사용할 수 없습니다');
+    } else {
+      const user = {
+        id: nextId.current,
+        name: nameRef.current.value,
+      };
 
-    nextId.current += 1;
-    nameRef.current.value = '';
-    setActiv(true);
-    setUsers([...users, user]);
+      nextId.current += 1;
+      nameRef.current.value = '';
+      setActiv(true);
+      setUsers([...users, user]);
+    }
   };
 
   const onRemove = (id) => {
@@ -39,7 +44,7 @@ function LandingPage() {
   return (
     <Container>
       <Header>
-        <h2>오늘의 정산</h2>
+        <h2>정산의 정석</h2>
         <p>정산에 참여할 구성원을 입력해주세요.</p>
       </Header>
       <InputUser onCreate={onCreate} ref={nameRef} />
