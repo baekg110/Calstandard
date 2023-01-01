@@ -59,7 +59,7 @@ export default function ResultPage() {
           <button type="button" onClick={except}>
             공유하기
           </button>
-          <Link to="/">처음으로</Link>
+          <Link to={`${process.env.PUBLIC_URL}`}>처음으로</Link>
         </Buttons>
       </main>
     </Container>
