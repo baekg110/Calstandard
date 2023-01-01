@@ -12,8 +12,6 @@ function LandingPage() {
   const navigate = useNavigate();
 
   const onCreate = (setActiv) => {
-    // if(!nameRef.current.value)
-    console.log(users.filter((user) => user.name === nameRef.current.value));
     if (users.filter((user) => user.name === nameRef.current.value).length) {
       alert('중복된 이름을 사용할 수 없습니다');
     } else {

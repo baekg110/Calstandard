@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled, { css } from 'styled-components';
 import { SlClose } from 'react-icons/sl';
 
@@ -85,10 +85,8 @@ const Button = styled.button`
 `;
 
 const MemberButton = styled.button`
-  outline: 3px solid blue;
-
   ${(props) => {
-    props.joinmember &&
+    props.user &&
       css`
         outline: 3px solid yellow;
       `;
@@ -96,31 +94,43 @@ const MemberButton = styled.button`
 `;
 
 function Pay({ pay, onRemove, index, pays, setPays, users }) {
-  const onClick = (e) => {
-    console.log(index);
-    // console.log(pay.id);
-    // console.log(e.target.textContent);
+  const toggleRef = useRef();
 
-    // console.log(pays[idx].users);
-    // const newPay = { ...pays[idx], users: newUser };
-    // const udPay = [...pays[idx],users:]
+  const onClick = (e) => {
     const username = e.target.textContent;
     let newuser;
-    console.log(pay.users);
     if (pay.users.includes(username)) {
       newuser = pay.users.filter((user) => user !== username);
     } else {
       newuser = pay.users.concat([username]);
     }
+
+    if (newuser.length === users.length) {
+      toggleRef.current.checked = true;
+    } else {
+      toggleRef.current.checked = false;
+    }
+    console.log(newuser);
     const newpay = { ...pay, users: newuser };
     const copyPays = [...pays];
     copyPays[index] = newpay;
-    console.log(copyPays);
     setPays(copyPays);
   };
 
-  const toggleMember = () => {
-    if (pay.users) console.log(pay.users);
+  const toggleMember = (e) => {
+    let newuser;
+    if (e.target.checked) {
+      // 전체 선택
+      newuser = users;
+    } else {
+      newuser = [];
+    }
+    console.log(newuser);
+
+    const newpay = { ...pay, users: newuser };
+    const copyPays = [...pays];
+    copyPays[index] = newpay;
+    setPays(copyPays);
   };
 
   const joinCheck = (user) => {
@@ -138,7 +148,8 @@ function Pay({ pay, onRemove, index, pays, setPays, users }) {
       </InfoContainer>
       <ButtonContainer>
         <label>
-          <ToggleCheck type="checkbox" onClick={toggleMember} /> 전체선택/해제
+          <ToggleCheck type="checkbox" onClick={(e) => toggleMember(e)} defaultChecked ref={toggleRef} />
+          전체선택/해제
         </label>
 
         <Buttons>
@@ -149,9 +160,8 @@ function Pay({ pay, onRemove, index, pays, setPays, users }) {
               users={pay.users}
               onClick={(e) => {
                 onClick(e);
-                joinCheck();
               }}
-              // joinmember={pay.users.includes(user)}
+              joinmember={pay.users.includes(user)}
             >
               {user}
             </MemberButton>
