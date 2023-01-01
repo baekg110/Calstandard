@@ -5,7 +5,7 @@ import { InputAccount, PayCheck, ResultList } from '../../components';
 import { Container, Header } from '../../components/layout/Layout';
 
 const Buttons = styled.div`
-  width: 100%;
+  width: min(780px, 100%);
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;

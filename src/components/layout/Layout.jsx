@@ -35,7 +35,7 @@ export const Header = styled.header`
 export const LinkContainer = styled.button`
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: min(780px, 100%);
   height: 50px;
   display: flex;
   justify-content: center;
