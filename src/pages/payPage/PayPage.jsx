@@ -61,7 +61,7 @@ function PayPage() {
         </p> */}
       </Header>
       <InputPayment onCreate={onCreate} ref={ref} />
-      <PaymentList pays={pays} setPays={setPays} onRemove={onRemove} />
+      <PaymentList users={users} pays={pays} setPays={setPays} onRemove={onRemove} />
       <LinkContainer onClick={navigateCheck} active={pays.length}>
         다음
       </LinkContainer>

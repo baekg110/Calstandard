@@ -14,7 +14,7 @@ const ListContainer = styled.ul`
 const ItemContainer = styled.li`
   width: 320px;
   border: 1px solid #ccc;
-  padding: 12px 24px;
+  padding: 24px;
 
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@ const ItemContainer = styled.li`
 
 const InfoContainer = styled.div`
   width: 100%;
-  /* padding-bottom: 6px~; */
+  padding-bottom: 12px;
   display: flex;
   justify-content: space-between;
   gap: 8px;
@@ -50,6 +50,19 @@ const ButtonContainer = styled.div`
   gap: 6px;
   flex-direction: column;
   align-items: flex-start;
+  border-top: 1px solid var(--border-color);
+
+  label {
+    margin-top: 12px;
+  }
+`;
+
+const ToggleCheck = styled.input`
+  outline: 1px solid red;
+
+  &:checked {
+    /* background-color: var(--main-color); */
+  }
 `;
 
 const Buttons = styled.div`
@@ -57,6 +70,7 @@ const Buttons = styled.div`
   flex-wrap: wrap;
   gap: 6px;
 `;
+
 const Button = styled.button`
   background-color: #fff;
   border: 1px solid #bbb;
@@ -70,7 +84,49 @@ const Button = styled.button`
     `}
 `;
 
-function Pay({ pay, onRemove, pays, setPays, onClick }) {
+const MemberButton = styled.button`
+  outline: 3px solid blue;
+
+  ${(props) => {
+    props.joinmember &&
+      css`
+        outline: 3px solid yellow;
+      `;
+  }}
+`;
+
+function Pay({ pay, onRemove, index, pays, setPays, users }) {
+  const onClick = (e) => {
+    console.log(index);
+    // console.log(pay.id);
+    // console.log(e.target.textContent);
+
+    // console.log(pays[idx].users);
+    // const newPay = { ...pays[idx], users: newUser };
+    // const udPay = [...pays[idx],users:]
+    const username = e.target.textContent;
+    let newuser;
+    console.log(pay.users);
+    if (pay.users.includes(username)) {
+      newuser = pay.users.filter((user) => user !== username);
+    } else {
+      newuser = pay.users.concat([username]);
+    }
+    const newpay = { ...pay, users: newuser };
+    const copyPays = [...pays];
+    copyPays[index] = newpay;
+    console.log(copyPays);
+    setPays(copyPays);
+  };
+
+  const toggleMember = () => {
+    if (pay.users) console.log(pay.users);
+  };
+
+  const joinCheck = (user) => {
+    console.log(user);
+  };
+
   return (
     <ItemContainer>
       <InfoContainer>
@@ -80,37 +136,37 @@ function Pay({ pay, onRemove, pays, setPays, onClick }) {
           <SlClose alt="삭제" />
         </button>
       </InfoContainer>
-      {/* <ButtonContainer>
-        <button type="button">전체선택/해제</button>
+      <ButtonContainer>
+        <label>
+          <ToggleCheck type="checkbox" onClick={toggleMember} /> 전체선택/해제
+        </label>
+
         <Buttons>
-          {pay.users.map((user, index) => (
-            <MemberButton key={`${pay.id}${index}`} user={user} users={pay.users} />
+          {users.map((user, index) => (
+            <MemberButton
+              key={`${pay.id}${index}`}
+              user={user}
+              users={pay.users}
+              onClick={(e) => {
+                onClick(e);
+                joinCheck();
+              }}
+              // joinmember={pay.users.includes(user)}
+            >
+              {user}
+            </MemberButton>
           ))}
         </Buttons>
-      </ButtonContainer> */}
+      </ButtonContainer>
     </ItemContainer>
   );
 }
 
-function MemberButton({ user, users, onClick }) {
-  // users 사용자 정보
-  // onClick이 일어나면 스타일링 토글
-  // push, pop 진행 -> newUsers
-  // user 업데이트
-  // user인 인덱스를 가져와
-
-  return (
-    <Button type="button" activ={users.includes(user)} disabled={users.includes(user)} onClick={onClick}>
-      {user}
-    </Button>
-  );
-}
-
-export default function PaymentList({ pays, setPays, onRemove }) {
+export default function PaymentList({ users, pays, setPays, onRemove }) {
   return (
     <ListContainer>
-      {pays.map((pay) => (
-        <Pay key={pay.id} pay={pay} onRemove={onRemove} pays={pays} setPays={setPays} />
+      {pays.map((pay, index) => (
+        <Pay key={pay.id} pay={pay} index={index} onRemove={onRemove} pays={pays} setPays={setPays} users={users} />
       ))}
     </ListContainer>
   );
