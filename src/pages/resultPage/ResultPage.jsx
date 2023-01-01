@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { InputAccount, PayCheck, ResultList } from '../../components';
 import { Container, Header } from '../../components/layout/Layout';
@@ -41,11 +41,7 @@ export default function ResultPage() {
     setAcct({ bank: bankRef.current.value, acc: accRef.current.value });
   };
 
-  const except = () => {
-    alert('추후 개발될 예정입니다.');
-  };
-
-  const shareResult = () => {
+  const shareResult = async () => {
     let result = `==================\n     정산의 정석\n==================\n총무 : ${payer}`;
 
     if (acct.bank && acct.acc) {
@@ -59,8 +55,7 @@ export default function ResultPage() {
       result += `\n${user} : ${results[user].map((pay) => pay.priceper).reduce((a, b) => a + b, 0)}원`;
     }
     result += `\n==================`;
-
-    navigator.clipboard.writeText(result);
+    const res = await navigator.clipboard.writeText(result);
     alert('클립보드에 정산 결과가 복사되었습니다!');
   };
   return (
