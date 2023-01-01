@@ -30,7 +30,7 @@ function PayPage() {
     const pay = {
       id: nextId.current,
       name: itemRef.current.value,
-      price: priceRef.current.value,
+      price: parseInt(priceRef.current.value),
       users: [...users],
     };
     nextId.current += 1;

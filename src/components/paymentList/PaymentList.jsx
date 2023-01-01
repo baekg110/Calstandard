@@ -58,11 +58,7 @@ const ButtonContainer = styled.div`
 `;
 
 const ToggleCheck = styled.input`
-  outline: 1px solid red;
-
-  &:checked {
-    /* background-color: var(--main-color); */
-  }
+  accent-color: var(--main-color);
 `;
 
 const Buttons = styled.div`
@@ -71,26 +67,18 @@ const Buttons = styled.div`
   gap: 6px;
 `;
 
-const Button = styled.button`
+const MemberButton = styled.button`
   background-color: #fff;
-  border: 1px solid #bbb;
-  border-radius: 30px;
-  padding: 2px 12px;
+  border-radius: 50px;
+  padding: 0 8px;
+  cursor: pointer;
+  border: 3px solid var(--border-color);
 
   ${(props) =>
-    props.activ &&
+    props.joinmember &&
     css`
-      border: 2px solid var(--main-color);
+      border: 3px solid var(--main-color);
     `}
-`;
-
-const MemberButton = styled.button`
-  ${(props) => {
-    props.user &&
-      css`
-        outline: 3px solid yellow;
-      `;
-  }}
 `;
 
 function Pay({ pay, onRemove, index, pays, setPays, users }) {
@@ -110,7 +98,6 @@ function Pay({ pay, onRemove, index, pays, setPays, users }) {
     } else {
       toggleRef.current.checked = false;
     }
-    console.log(newuser);
     const newpay = { ...pay, users: newuser };
     const copyPays = [...pays];
     copyPays[index] = newpay;
@@ -125,16 +112,11 @@ function Pay({ pay, onRemove, index, pays, setPays, users }) {
     } else {
       newuser = [];
     }
-    console.log(newuser);
 
     const newpay = { ...pay, users: newuser };
     const copyPays = [...pays];
     copyPays[index] = newpay;
     setPays(copyPays);
-  };
-
-  const joinCheck = (user) => {
-    console.log(user);
   };
 
   return (

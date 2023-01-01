@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 const InputContainer = styled.div`
   width: 100%;
   height: 40px;
@@ -36,6 +36,7 @@ const InputContainer = styled.div`
 function InputUser({ onCreate }, ref) {
   const MAX_LENGTH = 18;
   const [activ, setActiv] = useState(true);
+
   const handleActiv = () => {
     if (ref.current.value) {
       setActiv(false);
@@ -43,11 +44,7 @@ function InputUser({ onCreate }, ref) {
       setActiv(true);
     }
   };
-  // const onBlur = () => {
-  //   if (ref.current.value.length > MAX_LENGTH) {
-  //     ref.current.value = ref.current.value.slice(0, MAX_LENGTH);
-  //   }
-  // };
+
   return (
     <InputContainer>
       <input maxLength={MAX_LENGTH} ref={ref} onChange={handleActiv} placeholder="구성원 이름을 입력해주세요." />

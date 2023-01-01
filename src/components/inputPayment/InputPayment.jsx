@@ -48,22 +48,24 @@ function InputPayment({ onCreate }, ref) {
       setActiv(true);
     }
   };
-  const MAX_LENGTH = 18;
+  const handleMax = () => {
+    if (ref.priceRef.current.value > MAX_LENGTH) {
+      ref.priceRef.current.value = ref.priceRef.current.value.substr(0, MAX_LENGTH);
+    }
+  };
+  const MAX_LENGTH = 7;
 
   return (
     <InputContainer>
-      <input
-        ref={ref.itemRef}
-        type="text"
-        placeholder="항목을 입력하세요."
-        onChange={handleActiv}
-        maxLength={MAX_LENGTH}
-      />
+      <input ref={ref.itemRef} type="text" placeholder="항목을 입력하세요." onChange={handleActiv} maxLength={10} />
       <input
         ref={ref.priceRef}
         type="number"
         placeholder="금액을 입력하세요."
-        onChange={handleActiv}
+        onChange={() => {
+          handleActiv();
+          handleMax();
+        }}
         maxLength={MAX_LENGTH}
       />
       <button onClick={() => onCreate(setActiv)} disabled={activ}>

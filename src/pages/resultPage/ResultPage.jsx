@@ -44,6 +44,24 @@ export default function ResultPage() {
   const except = () => {
     alert('추후 개발될 예정입니다.');
   };
+
+  const shareResult = () => {
+    let result = `==================\n     정산의 정석\n==================\n총무 : ${payer}`;
+
+    if (acct.bank && acct.acc) {
+      result += `\n계좌 : ${acct.bank} ${acct.acc}`;
+    }
+    result += `\n------------------`;
+    for (const user of Object.keys(results)) {
+      if (user === payer) {
+        continue;
+      }
+      result += `\n${user} : ${results[user].map((pay) => pay.priceper).reduce((a, b) => a + b, 0)}원`;
+    }
+    result += `\n==================`;
+
+    navigator.clipboard.writeText(result);
+  };
   return (
     <Container>
       <Header>
@@ -56,7 +74,7 @@ export default function ResultPage() {
           <ResultList results={results} />
         </ul>
         <Buttons>
-          <button type="button" onClick={except}>
+          <button type="button" onClick={shareResult}>
             공유하기
           </button>
           <Link to={`${process.env.PUBLIC_URL}`}>처음으로</Link>

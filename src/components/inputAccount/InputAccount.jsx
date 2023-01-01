@@ -25,11 +25,11 @@ function InputAccount({ onChange }, ref) {
     <AccountContainer>
       <label>
         은행 정보
-        <input ref={ref.bankRef} onChange={onChange} />
+        <input type="text" ref={ref.bankRef} onChange={onChange} />
       </label>
       <label>
         계좌 번호
-        <input ref={ref.accRef} onChange={onChange} />
+        <input type="number" ref={ref.accRef} onChange={onChange} />
       </label>
     </AccountContainer>
   );
