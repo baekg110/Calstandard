@@ -5,7 +5,7 @@ import { Container } from '../../components/layout/Layout';
 
 const Title = styled.h1`
   margin: 120px auto 0px;
-  width: 380px;
+  width: min(380px, 80%);
   border-top: 3px solid var(--main-color);
   text-align: center;
   font-size: 48px;
@@ -18,7 +18,8 @@ const Title = styled.h1`
 `;
 
 const Dev = styled.p`
-  width: 380px;
+  width: min(380px, 80%);
+
   /* border: 1px solid red; */
   background-color: var(--main-color);
   text-align: center;
