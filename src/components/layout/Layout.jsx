@@ -9,6 +9,7 @@ export const Container = styled.article`
   margin: auto;
   flex-direction: column;
   position: relative;
+  border: 1px solid pink;
 `;
 
 export const Section = styled.section`
