@@ -61,6 +61,7 @@ export default function ResultPage() {
     result += `\n==================`;
 
     navigator.clipboard.writeText(result);
+    alert('클립보드에 정산 결과가 복사되었습니다!');
   };
   return (
     <Container>
