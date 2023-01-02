@@ -20,6 +20,7 @@ const Buttons = styled.div`
     box-shadow: 0px 0px 2px var(--border-color);
     padding: 10px 18px;
     border-radius: 30px;
+    text-align: center;
   }
 
   button {

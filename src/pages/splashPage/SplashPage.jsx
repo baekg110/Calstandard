@@ -33,7 +33,7 @@ export default function SplashPage() {
   const navigate = useNavigate();
   setTimeout(() => {
     navigate(`${process.env.PUBLIC_URL}/home`);
-  }, 1500);
+  }, 15000);
 
   return (
     <Container>
