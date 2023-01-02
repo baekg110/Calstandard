@@ -10,7 +10,7 @@ const ModalContainer = styled.div`
 
   z-index: 10;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 0px 1000000px rgba(0, 0, 0, 0.6);
   display: none;
 
   ${(props) =>
