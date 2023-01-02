@@ -27,15 +27,7 @@ const GlobalStyle = createGlobalStyle`
     color: var(--txt-color);
     }   
 
-    body{
 
-    }
-
-    img {
-        width: 100%;
-        height: auto;
-        vertical-align: top;
-    }
     a {
         display: block;
         text-decoration: none;

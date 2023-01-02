@@ -7,6 +7,8 @@ const Title = styled.header`
   margin: 120px auto 0px;
   width: min(380px, 80%);
   border-top: 3px solid var(--main-color);
+  position: relative;
+
   h1 {
     text-align: center;
     font-size: 48px;
@@ -15,28 +17,20 @@ const Title = styled.header`
 
   span {
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 400;
   }
+
   p {
     background-color: var(--main-color);
     text-align: center;
     margin: 0px auto;
     padding: 4px;
-    font-weight: 600;
+    position: relative;
   }
-`;
-
-const Dev = styled.p`
-  position: absolute;
-  bottom: 80px;
-  display: block;
-  width: 100%;
-  text-align: center;
 `;
 
 export default function SplashPage() {
   const navigate = useNavigate();
-
   setTimeout(() => {
     navigate(`${process.env.PUBLIC_URL}/home`);
   }, 1500);
@@ -49,7 +43,7 @@ export default function SplashPage() {
         </h1>
         <p>CALCULATION STANDARD</p>
       </Title>
-      <Dev>Copyright 2023. BAEKG6 All rights reserved.</Dev>
+      <p className="copyright">Copyright 2023. BAEKG6 All rights reserved.</p>
     </Container>
   );
 }

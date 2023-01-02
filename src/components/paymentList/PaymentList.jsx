@@ -31,7 +31,7 @@ const InfoContainer = styled.div`
   gap: 8px;
   font-size: 16px;
   strong {
-    font-weight: 500;
+    font-weight: 400;
     margin-right: auto;
   }
 

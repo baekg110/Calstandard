@@ -8,7 +8,7 @@ const ListContainer = styled.ul`
   border-top: 1px solid var(--border-color);
   margin: 24px 24px;
   padding: 12px 24px;
-  wid제h: auto;
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +48,7 @@ const ItemContainer = styled.li`
   gap: 12px;
 
   strong {
-    font-weight: 600;
+    font-weight: 700;
     margin-right: auto;
   }
 

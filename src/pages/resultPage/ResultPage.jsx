@@ -8,24 +8,25 @@ const Buttons = styled.div`
   width: min(780px, 100%);
   display: flex;
   flex-direction: row-reverse;
-  justify-content: center;
   gap: 16px;
   position: fixed;
   bottom: 24px;
+
   button,
   a {
     width: 40%;
     background-color: white;
     border: none;
-    text-align: center;
     box-shadow: 0px 0px 2px var(--border-color);
     padding: 10px 18px;
     border-radius: 30px;
   }
+
   button {
     background-color: var(--main-color);
   }
 `;
+
 export default function ResultPage() {
   const location = useLocation();
   const users = location.state.users;
@@ -42,7 +43,7 @@ export default function ResultPage() {
   };
 
   const shareResult = async () => {
-    let result = `==================\n     정산의 정석\n==================\n총무 : ${payer}`;
+    let result = `==================\n        정산의 정석\n==================\n총무 : ${payer}`;
 
     if (acct.bank && acct.acc) {
       result += `\n계좌 : ${acct.bank} ${acct.acc}`;
@@ -58,6 +59,7 @@ export default function ResultPage() {
     const res = await navigator.clipboard.writeText(result);
     alert('클립보드에 정산 결과가 복사되었습니다!');
   };
+
   return (
     <Container>
       <Header>
@@ -66,9 +68,7 @@ export default function ResultPage() {
       </Header>
       <InputAccount ref={ref} onChange={onChange} />
       <main>
-        <ul>
-          <ResultList results={results} />
-        </ul>
+        <ResultList results={results} />
         <Buttons>
           <button type="button" onClick={shareResult}>
             공유하기

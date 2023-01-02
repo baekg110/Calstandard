@@ -9,10 +9,17 @@ export const Container = styled.article`
   margin: auto;
   flex-direction: column;
   position: relative;
+
+  p.copyright {
+    position: absolute;
+    bottom: 80px;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export const Section = styled.section`
-  /* width: max(380px, 100%); */
   width: 100%;
 `;
 
