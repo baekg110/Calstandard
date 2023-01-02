@@ -4,7 +4,7 @@ import { LandingPage, PayPage, ResultPage, SplashPage } from '../pages';
 
 export default function Router() {
   return (
-    <BrowserRouter basename="/calstandard/">
+    <BrowserRouter>
       <Routes>
         <Route path={process.env.PUBLIC_URL + '/'} element={<SplashPage />} />
         <Route path={process.env.PUBLIC_URL + '/home'} element={<LandingPage />} />
