@@ -8,9 +8,11 @@ const Buttons = styled.div`
   width: min(780px, 100%);
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
   gap: 16px;
   position: fixed;
   bottom: 24px;
+  margin: auto;
 
   button,
   a {
