@@ -1,5 +1,4 @@
 import React from 'react';
-import tw from 'tailwind-styled-components';
 import GlobalStyle from './GlobalStyle';
 import Router from './routes/Router';
 
