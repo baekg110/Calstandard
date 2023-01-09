@@ -6,7 +6,7 @@
 </div>
 
 - 목적 : 정산 항목 별로 참여 정보가 다를 때도 손쉽게 정산 할 수 있는 서비스
-- [배포 링크](https://baekg6.github.io/calstandard/)
+- [배포 링크](https://baekg6.github.io/Calstandard/)
  
  <br/>
  
