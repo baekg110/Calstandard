@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/calstandard/static/css/main.0c5897db.css",
-    "main.js": "/calstandard/static/js/main.3126422b.js",
+    "main.js": "/calstandard/static/js/main.8fe25c8e.js",
     "index.html": "/calstandard/index.html",
     "main.0c5897db.css.map": "/calstandard/static/css/main.0c5897db.css.map",
-    "main.3126422b.js.map": "/calstandard/static/js/main.3126422b.js.map"
+    "main.8fe25c8e.js.map": "/calstandard/static/js/main.8fe25c8e.js.map"
   },
   "entrypoints": [
     "static/css/main.0c5897db.css",
-    "static/js/main.3126422b.js"
+    "static/js/main.8fe25c8e.js"
   ]
 }
