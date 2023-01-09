@@ -55,18 +55,30 @@ function InputPayment({ onCreate }, ref) {
   };
   const MAX_LENGTH = 7;
 
+  const handleEnter = () => {
+    if (window.event.keyCode !== 13) {
+      return;
+    }
+    if (activ) {
+    } else {
+      onCreate(setActiv);
+    }
+  };
+
   return (
     <InputContainer>
       <input ref={ref.itemRef} type="text" placeholder="항목을 입력하세요." onChange={handleActiv} maxLength={10} />
       <input
         ref={ref.priceRef}
         type="number"
+        min="0"
+        max="9999999"
         placeholder="금액을 입력하세요."
         onChange={() => {
           handleActiv();
           handleMax();
         }}
-        maxLength={MAX_LENGTH}
+        onKeyUp={handleEnter}
       />
       <button onClick={() => onCreate(setActiv)} disabled={activ}>
         등록

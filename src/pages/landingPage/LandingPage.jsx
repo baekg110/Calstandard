@@ -28,7 +28,10 @@ function LandingPage() {
   };
 
   const onRemove = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
+    const confirm = window.confirm('삭제하시겠습니까?');
+    if (confirm) {
+      setUsers(users.filter((user) => user.id !== id));
+    }
   };
 
   const navigateCheck = () => {

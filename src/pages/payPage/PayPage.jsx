@@ -41,7 +41,10 @@ function PayPage() {
   };
 
   const onRemove = (id) => {
-    setPays(pays.filter((pay) => pay.id !== id));
+    const confirm = window.confirm('삭제하시겠습니까?');
+    if (confirm) {
+      setPays(pays.filter((pay) => pay.id !== id));
+    }
   };
 
   const navigateCheck = () => {

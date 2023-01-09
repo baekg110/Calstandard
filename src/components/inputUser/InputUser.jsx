@@ -45,9 +45,26 @@ function InputUser({ onCreate }, ref) {
     }
   };
 
+  const handleEnter = () => {
+    if (window.event.keyCode !== 13) {
+      return;
+    }
+    if (ref.current.value) {
+      onCreate(setActiv);
+    } else {
+      window.alert('값을 입력해주세요');
+    }
+  };
+
   return (
     <InputContainer>
-      <input maxLength={MAX_LENGTH} ref={ref} onChange={handleActiv} placeholder="구성원 이름을 입력해주세요." />
+      <input
+        maxLength={MAX_LENGTH}
+        ref={ref}
+        onChange={handleActiv}
+        placeholder="구성원 이름을 입력해주세요."
+        onKeyUp={handleEnter}
+      />
       <button onClick={() => onCreate(setActiv)} disabled={activ}>
         등록
       </button>
