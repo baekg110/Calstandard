@@ -58,13 +58,7 @@ function InputUser({ onCreate }, ref) {
 
   return (
     <InputContainer>
-      <input
-        maxLength={MAX_LENGTH}
-        ref={ref}
-        onChange={handleActiv}
-        placeholder="구성원 이름을 입력해주세요."
-        onKeyUp={handleEnter}
-      />
+      <input maxLength={MAX_LENGTH} ref={ref} onChange={handleActiv} placeholder="구성원 이름을 입력해주세요." />
       <button onClick={() => onCreate(setActiv)} disabled={activ}>
         등록
       </button>
