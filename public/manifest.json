@@ -1,0 +1,17 @@
+{
+  "background_color": "#ffffff",
+  "description": "구성원 정보와 결제 항목을 입력하여 간단하게 정산해주는 서비스입니다.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "정산의 정석",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "정산의 정석",
+  "start_url": "/",
+  "theme_color": "#ffcc00",
+  "categories": [],
+  "screenshots": [],
+  "icons": [],
+  "shortcuts": [],
+  "lang": "ko"
+}
