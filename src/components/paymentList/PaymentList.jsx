@@ -5,6 +5,8 @@ import { SlClose } from 'react-icons/sl';
 const ListContainer = styled.ul`
   padding: 12px 24px 62px;
   width: 100%;
+  height: 100%;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;

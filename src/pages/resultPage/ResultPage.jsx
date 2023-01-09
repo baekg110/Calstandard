@@ -10,7 +10,7 @@ const Buttons = styled.div`
   flex-direction: row-reverse;
   justify-content: center;
   gap: 16px;
-  position: fixed;
+  position: absolute;
   bottom: 24px;
   margin: auto;
 
